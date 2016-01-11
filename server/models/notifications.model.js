@@ -29,7 +29,7 @@ notificationSchema.methods.markResolved = function() {
 
 notificationSchema.methods.markAccepted = function(reply) {
   this.isAccepted = reply;
-}
+};
 
 notificationSchema.methods.markRead = function() {
   this.isRead = true;
