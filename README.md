@@ -20,6 +20,32 @@
 
 OnBelay is a web application that requires users to create an account. To use OnBelay, all you have to do is signin. You will be able to view all climbers who are looking for a climbing partner. Toggle the switch to indicate that you are ready to climb. Click the 'Climb On' button to notify the user that you would like to meet up at a local gym. Check your notifications to view those interested in climbing with you.
 
+### Website
+
+The website runs on a Node.js server and on the backend with a MongoDB database. On the front end it uses AngularJs and Twitter bootstrap for a responsive design. Here is what the website home page looks like.
+
+![OnBelay Website](/screenshots/signin.png?raw=true "OnBelay Signin")
+
+Here is what the user sees when they login to their account on OnBelay. This shows all the items that the user has chosen to save using the Chrome extension.
+
+![OnBelay Homepage](/screenshots/mainpage.png?raw=true "OnBelay Main Page")
+
+## Requirements
+
+- Node 5.3.x
+- Express 4.0.x
+- Mongoose 4.3.x
+- Bootstrap latest
+
+## Development
+
+### Installing Dependencies
+
+From within the root directory:
+
+`sudo npm install -g bower`
+`npm install`
+`bower install`
 
 ### Roadmap
 
