@@ -4,7 +4,7 @@
 
 > BelayOn App is the easiest way to secure a partner for safe climbing.
 
-![OnBelay Logo](/screenshots/OnBelay.png?raw=true "OnBelay Logo")
+![OnBelay Logo](/screenshots/onbelaylogo.png?raw=true "OnBelay Logo")
 
 ## Table of Contents
 
@@ -26,7 +26,7 @@ The website runs on a Node.js server and on the backend with a MongoDB database.
 
 ![OnBelay Website](/screenshots/signin.png?raw=true "OnBelay Signin")
 
-Here is what the user sees when they login to their account on OnBelay. This shows all the items that the user has chosen to save using the Chrome extension.
+Here is what the user sees when they login to their account on OnBelay. This shows all the climbers who have switched on their 'Climb' button.
 
 ![OnBelay Homepage](/screenshots/mainpage.png?raw=true "OnBelay Main Page")
 
@@ -43,9 +43,7 @@ Here is what the user sees when they login to their account on OnBelay. This sho
 
 From within the root directory:
 
-`sudo npm install -g bower`
 `npm install`
-`bower install`
 
 ### Roadmap
 
