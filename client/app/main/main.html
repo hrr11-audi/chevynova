@@ -8,7 +8,7 @@
         </div>
     </section>
     <div class="row">
-      <div class="[col-md-offset-1 col-md-4 ]" class='climbers' ng-repeat="climber in activeClimbers" ng-if="climber">
+      <div class="[col-md-offset-1 col-md-4 ] climbers" ng-repeat="climber in activeClimbers" ng-if="climber">
         <div class="[ info-card ]">
           <img style="width: 100%" src="assets/img/profile-generic.jpg" />
           <div class="[ info-card-details ] animate">
@@ -19,7 +19,7 @@
             <div class="[ info-card-detail ]">
               <!-- Description -->
               <p>Looking to climb with some fellow {{climber.skillLevel}} climbers! </p>
-              <button class='climbOnBtn btn btn-primary outline' ng-click='climbOn(climber.username)'>Climb On</button>
+              <button class="climbOnBtn btn btn-primary outline" ng-click="climbOn(climber.username)">Climb On</button>
               <!-- <div class="social">
                 <a href="https://www.facebook.com/rem.mcintosh" class="[ social-icon facebook ] animate"><span class="fa fa-facebook"></span></a>
                 <a href="https://twitter.com/Mouse0270" class="[ social-icon twitter ] animate"><span class="fa fa-twitter"></span></a>

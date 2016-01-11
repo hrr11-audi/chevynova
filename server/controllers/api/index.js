@@ -2,7 +2,7 @@ var express = require('express'),
     auth = require('./auth.controller'),
     profile = require('./profile.controller'),
     token = require('../../middleware/'),
-    user = require('./user.controller.js')
+    user = require('./user.controller.js'),
     flag = require('./flag.controller.js'),
     notify = require('./notify.controller.js');
 

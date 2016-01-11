@@ -21,4 +21,4 @@ exports.updateProfile = function(req, res) {
       });
     }
   });
-}
+};
