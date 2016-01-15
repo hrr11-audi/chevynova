@@ -26,8 +26,8 @@
     <nav ng-controller="AuthController" ng-show="$root.hasAuth" role="navigation">
       <a ui-sref="notifications" ui-sref-active="active-nav" class="notification-icon">{{ $root.unread }}</a>
       <a ui-sref="main" ui-sref-active="active-nav">Climb</a>
-      <a ui-sref="update" ui-sref-active="active-nav">Profile</a>
-      <a data-toggle='offcanvas' data-target='#chatSideBar'>Chat</a>
+      <a ui-sref="profile" ui-sref-active="active-nav">Profile</a>
+      <a data-toggle='offcanvas' data-target='#chatSideBar' data-canvas='body'>Chat</a>
       <a ui-sref="logout" ui-sref-active="active-nav">Log Out</a>
     </nav>
 

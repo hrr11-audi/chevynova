@@ -26,6 +26,11 @@ angular.module('nova', [
       templateUrl: "app/auth/signup.html",
       controller: "AuthController"
     })
+    .state('profile', {
+      url: '/profile',
+      templateUrl: 'app/profile/profile.html',
+      controller: 'ProfileController'
+    })
     .state('update', {
       url: "/update",
       templateUrl: "app/update/update.html",
