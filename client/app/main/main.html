@@ -15,12 +15,19 @@
             <div class="[ info-card-header ]">
               <h1> {{climber.first}} {{climber.last}} </h1>
               <h3> {{climber.skillLevel}} / {{climber.gender}}</h3>
+              {{loggedInID + '-' + climber.id}}
             </div>
             <div class="[ info-card-detail ]">
               <!-- Description -->
               <p>Looking to climb with some fellow {{climber.skillLevel}} climbers! </p>
               <button class="climbOnBtn btn btn-primary outline" ng-click="climbOn(climber.username)">Climb On</button>
               <div class="social">
+              <!-- Testing only, delete later -->
+              <button class="climbOnBtn btn btn-primary outline" ng-click="contactMe(climber.id)">Contact Me</button>
+              <div ng-repeat="d in data">
+                {{d}}
+              </div>
+              <!-- <div class="social">
                 <a href="https://www.facebook.com/rem.mcintosh" class="[ social-icon facebook ] animate"><span class="fa fa-facebook"></span></a>
                 <a href="https://twitter.com/Mouse0270" class="[ social-icon twitter ] animate"><span class="fa fa-twitter"></span></a>
                 <a href="https://plus.google.com/u/0/115077481218689845626/posts" class="[ social-icon google-plus ] animate"><span class="fa fa-google-plus"></span></a>

@@ -17,6 +17,7 @@ var userSchema = mongoose.Schema({
   //   incoming: [{ type: ObjectId, ref: 'Notification' }],
   //   outgoing: [{ type: ObjectId, ref: 'Notification' }]
   // },
+  conversations: Array,
   createdAt: Date,
   updatedAt: Date
 });

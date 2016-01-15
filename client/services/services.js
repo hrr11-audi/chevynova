@@ -9,6 +9,8 @@ angular.module('nova.services', [])
       data: user
     })
     .then(function(resp){
+      console.log(resp);
+      $rootScope.loggedInID = resp.data.loggedInID;
       return resp.data.token;
     });
   };

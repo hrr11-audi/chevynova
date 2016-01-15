@@ -23,7 +23,7 @@ module.exports = {
         user.comparePassword(req.body.password, user.password, function(valid) {
           if (valid) {
             var userToken = createToken(user);
-            res.json({'success': true, 'token': userToken, 'status': user.climb});
+            res.json({'success': true, 'token': userToken, 'loggedInID': user._id, 'status': user.climb});
           } else {
             res.sendStatus(401);
           }

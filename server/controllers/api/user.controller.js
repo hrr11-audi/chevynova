@@ -7,7 +7,7 @@ module.exports = {
     User.find({climb: true}, function(err, climbers) {
       if (err) console.error(err);
       var result = climbers.map(function(climber) {
-        
+
         if (climber.username === authUser) return;
 
         return {
@@ -16,7 +16,8 @@ module.exports = {
           last: climber.name.last,
           zipCode: climber.zipCode,
           gender: climber.gender,
-          skillLevel: climber.skillLevel
+          skillLevel: climber.skillLevel,
+          id: climber._id
         };
       });
       res.json(result);
