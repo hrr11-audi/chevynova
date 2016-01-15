@@ -3,6 +3,7 @@ angular.module('nova.notifications', [])
   .controller('NotificationCtrl', function($scope, Notify, Climbers) {
     $scope.notifications = [];
 
+
     /*$scope.getAllNotifications = function() {
       Notify.fetchAllNotifications()
         .then(function(res) {
