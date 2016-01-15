@@ -12,28 +12,20 @@ exports.climbFlag = function(req, res) {
   //find User
   User.findOne({ username: authUser }, function(err, user) {
     if (err) console.error(err);
-
     if (!user) {
       res.json({ success: false, reason: 'User not found' });
     } else {
-
       switch (req.method) {
-
         case 'PUT' :
-
           if (updateSender) {
             User.findOne({ username: sender }, function(err, sender) {
-
               if (err) console.error(err);
-
               if (!sender) {
                 res.json({ success: false, reason: 'Sender not found' });
               } else {
                 sender.climb = false;
                 sender.save(function(err, user) {
-
                   if (err) console.error(err);
-
                 });
               }
             });
@@ -41,7 +33,6 @@ exports.climbFlag = function(req, res) {
           } else {
             user.climb = !user.climb;
           }
-
           user.save(function(err, user) {
             if (err) console.error(err);
             res.json({ success: true, status: user.climb });
