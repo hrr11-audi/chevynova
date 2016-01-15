@@ -1,0 +1,21 @@
+<div class='container'>
+  <div class='row'>
+    <div class='userProfileImage col-xs-4'>
+      <img src='../../assets/img/empty-avatar.png' class='col-xs-4'>
+    </div>
+    <div class='userProfileInfo' class='col-xs-4'>
+      <h2 class='userProfileName'>{{ user.name }}</h2>
+      <p class='userProfileSkill'>{{ user.skill }}</p>
+      <p class='userProfileZip'>{{ user.zip }}</p>
+      <p class='userProfileFavs'>Loves to climb: {{ user.favs }}</p>
+      <p class='userProfileClimb' ng-if='user.climb'>Looking for a climb</p>
+    </div>
+    <div class='userProfileMap' class='col-xs-4'>
+      <h1> Map Placeholder</h1>
+    </div>
+  </div>
+  <div ng-if='user.name === activeUser.name' class='row'>
+    <a class='col-xs-2 col-xs-offset-5'>Update your profile</a>
+  </div>
+
+</div>

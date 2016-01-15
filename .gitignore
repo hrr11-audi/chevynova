@@ -8,3 +8,4 @@ bower_components
 server/config/secrets.js
 fakeUsers.js
 data/
+lib/
