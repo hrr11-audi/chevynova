@@ -13,10 +13,10 @@ var userSchema = mongoose.Schema({
   skillLevel: String,
   gender: String,
   climb: { type: Boolean, default: false },
-  notifications: {
-    incoming: [{ type: ObjectId, ref: 'Notification' }],
-    outgoing: [{ type: ObjectId, ref: 'Notification' }]
-  },
+  // notifications: {
+  //   incoming: [{ type: ObjectId, ref: 'Notification' }],
+  //   outgoing: [{ type: ObjectId, ref: 'Notification' }]
+  // },
   createdAt: Date,
   updatedAt: Date
 });

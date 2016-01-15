@@ -14,7 +14,7 @@ angular.module('nova.auth', [])
         $window.localStorage.setItem('com.nova', token);
         $rootScope.hasAuth = true;
         $state.go('main');
-    s
+        // $scope.checkNotifications();
       })
       .catch(function (error) {
         console.error(error);

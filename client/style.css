@@ -157,3 +157,6 @@ nav a:last-child {
     color: #e74c3c;
     box-shadow: none;
 }
+.chatSideBar{
+  width: 200px;
+}
