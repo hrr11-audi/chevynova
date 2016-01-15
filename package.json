@@ -4,11 +4,11 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server/server.js"
+    "start": "node server/server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hrr11-audi/chevynova.git"
+    "url": "git+https://github.com/Delorean11/OnBelay.git"
   },
   "author": "",
   "license": "ISC",
