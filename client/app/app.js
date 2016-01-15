@@ -4,7 +4,8 @@ angular.module('nova', [
   'ui.router',
   'nova.main',
   'nova.update',
-  'nova.notifications'
+  'nova.notifications',
+  'firebase'
 ])
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider){
