@@ -13,12 +13,12 @@ apiRouter.post('/signin', auth.signIn);
 apiRouter.post('/signup', auth.signUp);
 
 /* Token middleware */
-apiRouter.use('/api', token.authenticate);
+apiRouter.use('/auth', token.authenticate);
 
 /* Auth routes */
-apiRouter.put('/api/user/update', profile.updateProfile);
-apiRouter.get('/api/user/climbers', user.findActiveClimbers);
-apiRouter.all('/api/user/flag', flag.climbFlag);
+apiRouter.put('/auth/user/update', profile.updateProfile);
+apiRouter.get('/auth/user/climbers', user.findActiveClimbers);
+apiRouter.all('/auth/user/flag', flag.climbFlag);
 /*apiRouter.get('/auth/user/notifications/incoming', notify.getNotifications);
 apiRouter.post('/auth/user/notifications/create', notify.sendNotification);
 apiRouter.put('/auth/user/notifications/read', notify.readNotifications);
