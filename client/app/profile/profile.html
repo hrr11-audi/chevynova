@@ -1,0 +1,29 @@
+<div class='container'>
+  <div class='row userProfileDisplay'>
+    <div class='userProfileImage col-xs-3'>
+      <img class='img-responsive' ng-src='{{user.profileImg}}' class='col-xs-4'>
+    </div>
+    <div class='userProfileInfo col-xs-5'>
+      <ul>
+        <li><h2 class='userProfileName'>{{ user.name.first + ' ' + user.name.last }}</h2></li>
+        <li><p class='userProfileSkill'>{{ user.skillLevel }}</p></li>
+        <li><p class='userProfileZip'>{{ user.zipCode }}</p><li>
+        <li><p class='userProfileFavs'>Loves to climb: {{ user.favs }}</p></li>
+        <li><p class='userProfileClimb' ng-if='user.climb'>Looking for a climb</p></li>
+      </ul>
+    </div>
+    <div class='userProfileMap col-xs-4'>
+      <h1> Map Placeholder</h1>
+    </div>
+  </div>
+  <div ng-if='user.username === loggedInUser'class='row'>
+    <div class='updatePic centerText col-xs-3'>
+    <a ng-click='updatePic()' ng-if="!updatingPic">Update your photo</a>
+      <input ng-if="updatingPic" type='file' ng-model-instant onchange="angular.element(this).scope().imageUpload(event)" />
+    </div>
+    <div class='updateLink centerText col-xs-3'>
+      <a ui-sref='update' >Update your profile</a>
+    </div>
+  </div>
+
+</div>

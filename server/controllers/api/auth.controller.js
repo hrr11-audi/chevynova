@@ -55,7 +55,7 @@ module.exports = {
             if (err) console.error(err);
 
             var token = createToken(user);
-            res.json({ success: true, token: token });
+            res.json({ success: true, token: token, username: user.username });
           });
         });
       }

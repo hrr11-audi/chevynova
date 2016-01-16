@@ -8,6 +8,11 @@ angular.module('nova.auth', [])
     $rootScope.hasAuth = true;
   }
 
+  $scope.goToProfile = function(climber){
+    ClimberProfile.climber.info = climber;
+    $state.go('profile', {'userName':climber.first+climber.last});
+  }
+
   $scope.signin = function () {
     Auth.signin($scope.user)
       .then(function (token) {
@@ -40,6 +45,5 @@ angular.module('nova.auth', [])
       });
     }
   };
-
   // $scope.checkNotifications();
 });

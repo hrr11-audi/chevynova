@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" type="text/css" href="profile.css">
+  <link rel='stylesheet' type'text/css' href='userProfile.css'>
 </head>
 <body>
 
@@ -26,8 +27,8 @@
     <nav ng-controller="AuthController" ng-show="$root.hasAuth" role="navigation">
       <a ui-sref="notifications" ui-sref-active="active-nav" class="notification-icon">{{ $root.unread }}</a>
       <a ui-sref="main" ui-sref-active="active-nav">Climb</a>
-      <a ui-sref="update" ui-sref-active="active-nav">Profile</a>
-      <a data-toggle='offcanvas' data-target='#chatSideBar'>Chat</a>
+      <a ui-sref="profile({username: loggedInUser})" ui-sref-active="active-nav">Profile</a>
+      <a data-toggle='offcanvas' data-target='#chatSideBar' data-canvas='body'>Chat</a>
       <a ui-sref="logout" ui-sref-active="active-nav">Log Out</a>
     </nav>
 
@@ -53,6 +54,7 @@
   <script src="app/notifications/notifications.js"></script>
   <script src="app/main/main.js"></script>
   <script src="app/update/update.js"></script>
+  <script src='app/profile/profile.js'></script>
   <script src="app/app.js"></script>
 
 </body>

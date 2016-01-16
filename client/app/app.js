@@ -5,6 +5,7 @@ angular.module('nova', [
   'nova.main',
   'nova.update',
   'nova.notifications',
+  'nova.profile',
   'firebase'
 ])
 
@@ -25,6 +26,11 @@ angular.module('nova', [
       url: "/signup",
       templateUrl: "app/auth/signup.html",
       controller: "AuthController"
+    })
+    .state('profile', {
+      url: '/profile/:username',
+      templateUrl: 'app/profile/profile.html',
+      controller: 'ProfileController'
     })
     .state('update', {
       url: "/update",
