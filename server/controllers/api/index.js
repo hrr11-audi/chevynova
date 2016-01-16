@@ -14,10 +14,11 @@ apiRouter.post('/signup', auth.signUp);
 
 /* Token middleware */
 apiRouter.use('/auth', token.authenticate);
-
+console.log(typeof user.getClimberInfo, ' in router setup');
 /* Auth routes */
 apiRouter.put('/auth/user/update', profile.updateProfile);
 apiRouter.get('/auth/user/climbers', user.findActiveClimbers);
+apiRouter.get('/auth/user/climber/:username', user.getClimberInfo);
 apiRouter.all('/auth/user/flag', flag.climbFlag);
 /*apiRouter.get('/auth/user/notifications/incoming', notify.getNotifications);
 apiRouter.post('/auth/user/notifications/create', notify.sendNotification);

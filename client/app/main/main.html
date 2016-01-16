@@ -13,7 +13,7 @@
           <img style="width: 100%" src="assets/img/profile-generic.jpg" />
           <div class="[ info-card-details ] animate">
             <div class="[ info-card-header ]">
-              <h1> {{climber.first}} {{climber.last}} </h1>
+            <h1><a ui-sref='profile({username: climber.username})'> {{climber.first}} {{climber.last}} </a></h1>
               <h3> {{climber.skillLevel}} / {{climber.gender}}</h3>
               {{loggedInID + '-' + climber.id}}
             </div>

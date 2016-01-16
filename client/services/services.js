@@ -23,6 +23,7 @@ angular.module('nova.services', [])
       data: user
     })
     .then(function(resp){
+      $rootScope.loggedInUser = resp.data.username;
       return resp.data.token;
     })
     .catch(function(err) {
@@ -170,4 +171,18 @@ angular.module('nova.services', [])
     replyToClimber: replyToClimber
   };
 
+})
+.factory('Climber', function($http){
+  var getClimberInfo = function(climber){
+    console.log('inside Climber Factory');
+    return $http({
+      method: 'GET',
+      url: '/api/auth/user/climber/'+climber
+    }).then(function(res){
+      return res.data;
+    });
+  };
+  return {
+    getClimberInfo: getClimberInfo
+  };
 });
