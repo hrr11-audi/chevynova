@@ -102,9 +102,23 @@ angular.module('nova.services', [])
       console.error(err);
     });
   };
+  var updateProfileImg = function(img){
+    console.log(img);
+    return $http({
+      method: 'PUT',
+      url:'/api/auth/user/updateProfileImg',
+      data: {
+        img: img
+      }
+    })
+    .then(function(res){
+      return res.data;
+    });
+  }
 
   return {
-    update: update
+    update: update,
+    updateProfileImg: updateProfileImg
   };
 
 })
@@ -182,6 +196,7 @@ angular.module('nova.services', [])
       return res.data;
     });
   };
+
   return {
     getClimberInfo: getClimberInfo
   };

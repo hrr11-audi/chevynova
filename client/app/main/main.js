@@ -49,6 +49,7 @@ angular.module('nova.main', [])
     Climbers.getClimbers()
       .then(function(res) {
         $scope.activeClimbers = res;
+        console.log($scope.activeClimbers);
       })
       .catch(function(err) {
         console.error(err);

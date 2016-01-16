@@ -17,7 +17,8 @@ var findActiveClimbers = function(req, res) {
         zipCode: climber.zipCode,
         gender: climber.gender,
         skillLevel: climber.skillLevel,
-        id: climber._id
+        id: climber._id,
+        profileImg: climber.profileImg || 'assets/img/profile-generic.jpg'
       };
     });
     res.json(result);
@@ -27,14 +28,15 @@ var findActiveClimbers = function(req, res) {
 var getClimberInfo = function(req, res){
   User.findOne({username: req.params.username}, function(err, climber){
     if(err) console.log(err);
-    console.log(climber);
+
     var info = {
       username: climber.username,
       name: climber.name,
       zipCode: climber.zipCode,
       gender: climber.gender,
       skillLevel: climber.skillLevel,
-      id: climber._id
+      id: climber._id,
+      profileImg: climber.profileImg || 'assets/img/profile-generic.jpg'
     };
     res.json(info);
   })

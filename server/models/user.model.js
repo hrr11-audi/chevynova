@@ -19,7 +19,9 @@ var userSchema = mongoose.Schema({
   // },
   conversations: Array,
   createdAt: Date,
-  updatedAt: Date
+  updatedAt: Date,
+  profileImg: String,
+  favs: String
 });
 
 userSchema.pre('save', function(next) {

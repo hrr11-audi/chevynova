@@ -1,7 +1,7 @@
 <div class='container'>
   <div class='row userProfileDisplay'>
     <div class='userProfileImage col-xs-3'>
-      <img class='img-responsive' src='../../assets/img/empty-avatar.png' class='col-xs-4'>
+      <img class='img-responsive' ng-src='{{user.profileImg}}' class='col-xs-4'>
     </div>
     <div class='userProfileInfo col-xs-5'>
       <ul>
@@ -17,7 +17,11 @@
     </div>
   </div>
   <div ng-if='user.username === loggedInUser'class='row'>
-    <div class='updateLink col-xs-3'>
+    <div class='updatePic centerText col-xs-3'>
+    <a ng-click='updatePic()' ng-if="!updatingPic">Update your photo</a>
+      <input ng-if="updatingPic" type='file' ng-model-instant onchange="angular.element(this).scope().imageUpload(event)" />
+    </div>
+    <div class='updateLink centerText col-xs-3'>
       <a ui-sref='update' >Update your profile</a>
     </div>
   </div>

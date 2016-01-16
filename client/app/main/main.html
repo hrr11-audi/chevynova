@@ -10,7 +10,7 @@
     <div class="row">
       <div class="[col-md-offset-1 col-md-4 ] climbers" ng-repeat="climber in activeClimbers" ng-if="climber">
         <div class="[ info-card ]">
-          <img style="width: 100%" src="assets/img/profile-generic.jpg" />
+          <img style="width: 100%" ng-src="{{climber.profileImg}}" />
           <div class="[ info-card-details ] animate">
             <div class="[ info-card-header ]">
             <h1><a ui-sref='profile({username: climber.username})'> {{climber.first}} {{climber.last}} </a></h1>
