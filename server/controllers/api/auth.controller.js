@@ -11,7 +11,7 @@ if (process.env.NODE_ENV === undefined) {
 
 var createToken = function(user) {
  return jwt.sign({ user: user.username }, tokenSecret, {
-   expiresIn: 86400
+   //expiresIn: 86400
  });
 };
 
@@ -23,7 +23,7 @@ module.exports = {
         user.comparePassword(req.body.password, user.password, function(valid) {
           if (valid) {
             var userToken = createToken(user);
-            res.json({'success': true, 'token': userToken, 'loggedInID': user._id, 'status': user.climb});
+            res.json({'success': true, 'token': userToken, 'loggedInID': user._id, 'loggedInUser': user.username, 'status': user.climb});
           } else {
             res.sendStatus(401);
           }

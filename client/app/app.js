@@ -60,7 +60,9 @@ angular.module('nova', [
   return attach;
 })
 
-.run(function($rootScope, $state, Auth) {
+.run(function($rootScope, $state, $window, Auth) {
+  $rootScope.loggedInUser =  $window.localStorage.getItem('loggedInUser');
+  console.log($rootScope);
   $rootScope.$on('$stateChangeStart', function(evt, toState, toParams, fromState, fromParams){
     if (toState.name === 'signin') {
       return;

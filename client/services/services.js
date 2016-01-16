@@ -9,8 +9,9 @@ angular.module('nova.services', [])
       data: user
     })
     .then(function(resp){
-      console.log(resp);
-      $rootScope.loggedInID = resp.data.loggedInID;
+      console.log(resp.data);
+      $window.localStorage.setItem('loggedInUser', resp.data.loggedInUser);
+      $rootScope.loggedInUser = resp.data.loggedInUser;
       return resp.data.token;
     });
   };
@@ -31,7 +32,10 @@ angular.module('nova.services', [])
 
   var signout = function(){
     $rootScope.hasAuth = false;
+    $rootScope.loggedInUser = '';
     $window.localStorage.removeItem('com.nova');
+    $window.localStorage.removeItem('loggedInUser');
+
     $state.go('signin');
   };
 

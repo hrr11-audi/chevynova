@@ -13,6 +13,10 @@ header {
   z-index: 2;
 }
 
+li {
+  list-style-type: none !important;
+}
+
 .logo {
   float: left;
 }
@@ -159,4 +163,32 @@ nav a:last-child {
 }
 .chatSideBar{
   width: 200px;
+}
+
+.chat-box {
+  position: fixed;
+  bottom: -16px;
+  left: 80%;
+  height: 300px;
+  width: 300px;
+  z-index: 5000;
+  background: aliceblue;
+}
+
+.chat-body {
+  min-height: 181px;
+  max-height: 181px;
+  overflow-y: scroll;
+}
+
+.chat-form {
+  margin-top: 21px;
+}
+
+.chat-input {
+  width: 83% !important;
+}
+
+.close-btn {
+  cursor: pointer;
 }
