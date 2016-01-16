@@ -46,11 +46,14 @@ angular.module('nova.location', [])
 
 
   $scope.getDistance = function(p1,p2,cb) {
-  
+    
+    console.log(p1)
+    console.log(p2)
+
     googleMapsObj1 =  new google.maps.LatLng(p1.lat, p1.lng);
     googleMapsObj2 = new google.maps.LatLng(p2.lat, p2.lng);
     var distance = google.maps.geometry.spherical.computeDistanceBetween(googleMapsObj1, googleMapsObj2);
-    console.log(distance);
+    
     //distance in meters
     return distance;
   }
@@ -59,7 +62,6 @@ angular.module('nova.location', [])
   // From there this can make a request to the server get their 
 
   $scope.listOfDistancesToUserSorted = {};
-  var testObject2 = {lat: 38.6444652, lng: -90.2615356 };
   // listOfDistances is a list of lat and lng objects with user properties attached
   var listOfDistances = [];
   // Make ZipCode mandatory that way we can store their zip codes and filter by nearest zipCode
@@ -69,46 +71,44 @@ angular.module('nova.location', [])
     $scope.currentUserPosition.lat = lat;
     $scope.currentUserPosition.lng = lng;
     var listOfDistancesToUser = [];
-    $scope.sendTestRequest(63108, function(listOfUsers){
 
-    listOfDistances.forEach(function(user){
-      var constructorObject = {};
-      //$scope.getDistance finds  the lat and lng property of hte user object already so we only need to pass the user object
-      constructorObject.distanceToUser = $scope.getDistance($scope.currentUserPosition, user);
-      constructorObject.user = user;
-      listOfDistancesToUser.push(constructorObject);
+      $scope.sendTestRequest(63108, function(listOfUsers){
+
+      listOfUsers.forEach(function(user){
+        var constructorObject = {};
+        //$scope.getDistance finds  the lat and lng property of hte user object already so we only need to pass the user object
+        console.log(user)
+        constructorObject.distanceToUser = $scope.getDistance($scope.currentUserPosition, user);
+        constructorObject.user = user;
+        listOfDistancesToUser.push(constructorObject);
+      }); 
+        // Now we have a list of distances to the user
+
+          function sortArrayObjects(array){
+
+            return array.sort(function(a,b){
+              return a.distanceToUser - b.distanceToUser;
+            })
+          }
+
+          var listOfDistancesToUserSorted = sortArrayObjects(listOfDistancesToUser);
+          console.log(listOfDistancesToUserSorted, ' post sorting');
+          $scope.listOfDistancesToUserSorted = listOfDistancesToUserSorted;
+
+
+
+        
+      });
+
+
     });
+  
 
-    });
-    // Now we have a list of distances to the user
-
-    
+  
 
     
     // Now we have a list of distances from the current user. 
-    function quickSortArrayObjects(array){
-
-      var sorted = false;
-
-      while(!sorted){
-        sorted = true;
-        for (var i = 0; i < array.length; i++){
-            if(array[i+1].distanceToUser <= array[i].distanceToUser ){
-              var a = array[i+1];
-              array[i+1] = array[i];
-              array[i] = a;
-              sorted = false;
-          }
-        }
-      }
-        return array;
-    }
-
-    var listOfDistancesToUserSorted = quickSortArrayObjects(listOfDistancesToUser);
-
-    $scope.listOfDistancesToUserSorted = listOfDistancesToUserSorted;
-
-  });
+    
   
   $scope.checkGeoLocation();
 

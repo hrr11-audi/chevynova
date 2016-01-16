@@ -11,15 +11,22 @@ exports.returnUserLocations = function(req,res) {
   
   console.log(userZipcode);
   console.log(queryAmount);
-  var userArrayToReturn = [];
+
 
   User.find({ zipCode: userZipcode }).
     limit(queryAmount).
       exec(function(err,user){
         if (err) return handleError(err);
-        userArrayToReturn.push(user);
-        console.log(userArrayToReturn)
-        res.send(userArrayToReturn);
+        //We already get an array of users so there is no reason to make a new array
+        // This is a test funciton, in the future if they don't have a last known location then
+        // geocode their zipcode.
+        user.forEach(function(oneUser){
+          if (!oneUser.lat) {
+            oneUser.lat = 38.6424614;
+            oneUser.lng = -90.26354332999999;
+          }
+        });
+        res.send(user);
       });
 
 
