@@ -10,6 +10,8 @@ var userSchema = mongoose.Schema({
     last: String
   },
   zipCode: Number,
+  lat: Number, 
+  lng: Number,
   skillLevel: String,
   gender: String,
   climb: { type: Boolean, default: false },

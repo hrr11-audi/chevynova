@@ -123,6 +123,33 @@ angular.module('nova.services', [])
 
 })
 
+.factory('HandleRequest', ['$http', '$rootScope', '$state', function($http, $rootScope, $state) {
+
+  var apiKey = 'AIzaSyAvsxbn60GcAD8a6cpo9ESwQ1BG8Cb5Tgg';
+  
+    var getRequest = function(url) {
+      return $http({
+        method: 'GET',
+        url: url
+      });
+    };
+
+    var postRequest = function(url, data) {
+      return $http({
+        method: 'POST',
+        url: url,
+        data: data
+      });
+    };
+
+    return {
+      getRequest: getRequest,
+      postRequest: postRequest
+    };
+  
+}])
+  
+
 .factory('Notify', function($http, $rootScope) {
 
   var sendNotification = function(climber) {

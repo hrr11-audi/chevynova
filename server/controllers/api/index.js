@@ -4,6 +4,7 @@ var express = require('express'),
     token = require('../../middleware/'),
     user = require('./user.controller.js'),
     flag = require('./flag.controller.js');
+    location = require('./location.controller.js');
     // notify = require('./notify.controller.js');
 
 
@@ -15,6 +16,11 @@ apiRouter.post('/signup', auth.signUp);
 /* Token middleware */
 apiRouter.use('/auth', token.authenticate);
 console.log(typeof user.getClimberInfo, ' in router setup');
+
+
+// location route
+apiRouter.use('/location', location.returnUserLocations);
+
 /* Auth routes */
 apiRouter.put('/auth/user/update', profile.updateProfile);
 apiRouter.put('/auth/user/updateProfileImg', profile.updateProfileImg);

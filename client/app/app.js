@@ -4,6 +4,7 @@ angular.module('nova', [
   'ui.router',
   'nova.main',
   'nova.update',
+  'nova.location',
   'nova.notifications',
   'nova.profile',
   'firebase'
@@ -42,6 +43,11 @@ angular.module('nova', [
       controller: function($scope, Auth){
         Auth.signout();
       }
+    })
+    .state('location', {
+      url: "/location",
+      templateUrl: "app/location/location.html",
+      controller: "LocationController"
     })
     .state('notifications', {
       url: "/notifications",

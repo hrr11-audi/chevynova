@@ -1,6 +1,9 @@
 angular.module('nova.main', [])
 
+
 .controller('MainController', function($scope, $rootScope, Climbers, Notify, Auth, $state, $firebaseObject){
+
+
   // var param = '-K82b6x8j9uXqIclfUel';
   // var FIREBASE = new Firebase('https://on-belay.firebaseio.com/' + param);
   // var conversations = $firebaseObject(FIREBASE);
@@ -37,6 +40,7 @@ angular.module('nova.main', [])
     ClimberProfile.climber.info = climber;
     $state.go('profile', {'userName':climber.first+climber.last});
   }
+
 
   $scope.getActiveClimbers = function(){
     Climbers.getClimbers()

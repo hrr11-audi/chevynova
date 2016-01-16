@@ -111,11 +111,8 @@ module.exports = function(grunt){
       }
     });
 
-    grunt.registerTask('deploy', [
+    grunt.registerTask('default', [
       'build',
       'upload'
-    ]);
-    grunt.registerTask('default', [
-      'deploy'
      ]);
 };
