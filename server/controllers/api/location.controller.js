@@ -2,9 +2,6 @@ var User = require('../../models').User
 // var random = require('mongoose-random');
 
 
-// Sort on serverisde only get nearest 20
-// give me a zip code filter by that first
-// then try last known location 
 exports.returnUserLocations = function(req,res) {
   var userZipcode = req.body.userZipcode;
   var queryAmount = req.body.queryAmount || 5;
@@ -26,6 +23,7 @@ exports.returnUserLocations = function(req,res) {
             oneUser.lng = -90.26354332999999;
           }
         });
+        //User is an array of all the matching users;
         res.send(user);
       });
 
