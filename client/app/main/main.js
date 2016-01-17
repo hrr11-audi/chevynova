@@ -13,29 +13,22 @@ angular.module('nova.main', [])
   var params = '';
 
   $scope.displayChat = function(user) {
-    console.log(user, $rootScope);
     params = [$rootScope.loggedInUser, user];
     params = params.sort(function(a, b) {
       return a > b;
     });
     params = params.join('-');
-    console.log(params);
 
-    var FIREBASE = new Firebase('https://on-belay-next.firebaseio.com/' + params);
+    var FIREBASE = new Firebase('https://on-belay-1.firebaseio.com/conversations/' + params);
     var conversations = $firebaseObject(FIREBASE);
 
     $scope.showChat = true;
     $scope.recipient = user;
     $scope.conversations = FIREBASE;
-    $scope.chatsView = [];
-    //pull the msgs
-    // conversations.$bindTo($scope, 'chats' + params);
-    // conversations.$bindTo($scope, 'chats2');
+    $scope.chatsView = {};
 
     $scope.conversations.on('child_added', function(snapshot) {
-      $scope.chatsView.push(snapshot.val());
-      console.log(snapshot.key());
-      console.log($scope.chatsView);
+      $scope.chatsView[snapshot.key()] = snapshot.val();
     });
 
   };
@@ -77,19 +70,40 @@ angular.module('nova.main', [])
         console.error(err);
       });
   };
+
+  var called = false;
+
   //Testing, delete later
   $scope.sendMessage = function() {
-    //var param = $rootScope.loggedInUser + '-' + $scope.recipient;
-    var conversations = new Firebase('https://on-belay-next.firebaseio.com/' + params);
-    //var cons = $firebaseObject(conversations);
+    //var conversations = new Firebase('https://on-belay-1.firebaseio.com/' + params);
 
-    //cons.$bindTo($scope, 'chats');
+    // var inbox = new Firebase('https://on-belay-next.firebaseio.com/inbox')
+    var MAIN = new Firebase('https://on-belay-1.firebaseio.com');
+    var conversations = MAIN.child('conversations/' + params);
+    var inbox = MAIN.child('inbox');
+    var senderInbox = inbox.child($rootScope.loggedInUser);
+    var recipientInbox = inbox.child($scope.recipient);
 
     conversations.push({
-        wasRead: false,
-        users: { sender: $rootScope.loggedInUser, recipient: $scope.recipient },
-        text: $scope.message.text
+      wasRead: false,
+      users: { sender: $rootScope.loggedInUser, recipient: $scope.recipient },
+      text: $scope.message.text
+    });
+
+    senderInbox.child(params).push({
+      hasMessages: true
+    });
+
+    recipientInbox.child(params).push({
+      hasMessages: true
+    });
+
+    if(!called) {
+      called = true;
+      recipientInbox.child('unread').transaction(function(currentVal) {
+        return(currentVal || 0) + 1;
       });
+    }
 
     $scope.message.text = '';
 
