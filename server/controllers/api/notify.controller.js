@@ -115,6 +115,7 @@ function replyNotification(req, res) {
   });
 }
 
+//returns number of user's unread messages
 function checkUnread(req, res) {
   var authUser = req.decoded.user;
 

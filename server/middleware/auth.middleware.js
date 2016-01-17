@@ -9,7 +9,6 @@ if (process.env.NODE_ENV === undefined) {
 
 module.exports = function(req, res, next) {
   var token = req.headers['x-access-token'];
-
    if (!token) {
      return res.status(401).json({ success: false, reason: 'Invalid token' });
    }

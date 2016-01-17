@@ -10,26 +10,47 @@
     <div class="row">
       <div class="[col-md-offset-1 col-md-4 ] climbers" ng-repeat="climber in activeClimbers" ng-if="climber">
         <div class="[ info-card ]">
-          <img style="width: 100%" src="assets/img/profile-generic.jpg" />
+          <img style="width: 100%" ng-src="{{climber.profileImg}}" />
           <div class="[ info-card-details ] animate">
             <div class="[ info-card-header ]">
-              <h1> {{climber.first}} {{climber.last}} </h1>
+            <h1><a ui-sref='profile({username: climber.username})'> {{climber.first}} {{climber.last}} </a></h1>
               <h3> {{climber.skillLevel}} / {{climber.gender}}</h3>
+              {{loggedInID + '-' + climber.id}}
             </div>
             <div class="[ info-card-detail ]">
               <!-- Description -->
               <p>Looking to climb with some fellow {{climber.skillLevel}} climbers! </p>
               <button class="climbOnBtn btn btn-primary outline" ng-click="climbOn(climber.username)">Climb On</button>
-              <!-- <div class="social">
-                <a href="https://www.facebook.com/rem.mcintosh" class="[ social-icon facebook ] animate"><span class="fa fa-facebook"></span></a>
-                <a href="https://twitter.com/Mouse0270" class="[ social-icon twitter ] animate"><span class="fa fa-twitter"></span></a>
-                <a href="https://github.com/mouse0270" class="[ social-icon github ] animate"><span class="fa fa-github-alt"></span></a>
-                <a href="https://plus.google.com/u/0/115077481218689845626/posts" class="[ social-icon google-plus ] animate"><span class="fa fa-google-plus"></span></a>
-                <a href="www.linkedin.com/in/remcintosh/" class="[ social-icon linkedin ] animate"><span class="fa fa-linkedin"></span></a>
-              </div> -->
-           </div>
-         </div>
-       </div>
-     </div>
-   </div>
+              <div class="social">
+                <!-- Testing only, delete later -->
+                <button class="climbOnBtn btn btn-primary outline" ng-click="displayChat(climber.username)">Contact Me</button>
+                <div ng-repeat="d in data">
+                  {{d}}
+                </div>
+                <!-- <div class="social">
+                  <a href="https://www.facebook.com/rem.mcintosh" class="[ social-icon facebook ] animate"><span class="fa fa-facebook"></span></a>
+                  <a href="https://twitter.com/Mouse0270" class="[ social-icon twitter ] animate"><span class="fa fa-twitter"></span></a>
+                  <a href="https://plus.google.com/u/0/115077481218689845626/posts" class="[ social-icon google-plus ] animate"><span class="fa fa-google-plus"></span></a>
+                </div>-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default chat-box" ng-show="showChat">
+      <div class="panel-heading">Chat<span class="pull-right glyphicon glyphicon-remove close-btn" ng-click="showChat = !showChat"></span></div>
+      <div class="panel-body chat-body">
+        <ul ng-repeat="chat in chatsView">
+          <li>{{chat.users.sender}}: {{chat.text}}</li>
+        </ul>
+      </div>
+      <div class="panel-footer">
+        <form class="form-inline chat-form">
+          <input type="text" class="chat-input form-control" ng-model="message.text">
+          <button class="btn btn-xs btn-primary" ng-click="sendMessage()">Send</button>
+        </form>
+      </div>
+    </div>
 </div>

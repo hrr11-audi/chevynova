@@ -10,15 +10,20 @@ var userSchema = mongoose.Schema({
     last: String
   },
   zipCode: Number,
+  lat: Number, 
+  lng: Number,
   skillLevel: String,
   gender: String,
   climb: { type: Boolean, default: false },
-  notifications: {
-    incoming: [{ type: ObjectId, ref: 'Notification' }],
-    outgoing: [{ type: ObjectId, ref: 'Notification' }]
-  },
+  // notifications: {
+  //   incoming: [{ type: ObjectId, ref: 'Notification' }],
+  //   outgoing: [{ type: ObjectId, ref: 'Notification' }]
+  // },
+  conversations: Array,
   createdAt: Date,
-  updatedAt: Date
+  updatedAt: Date,
+  profileImg: String,
+  favs: String
 });
 
 userSchema.pre('save', function(next) {

@@ -4,7 +4,10 @@ angular.module('nova', [
   'ui.router',
   'nova.main',
   'nova.update',
-  'nova.notifications'
+  'nova.location',
+  'nova.notifications',
+  'nova.profile',
+  'firebase'
 ])
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider){
@@ -25,6 +28,11 @@ angular.module('nova', [
       templateUrl: "app/auth/signup.html",
       controller: "AuthController"
     })
+    .state('profile', {
+      url: '/profile/:username',
+      templateUrl: 'app/profile/profile.html',
+      controller: 'ProfileController'
+    })
     .state('update', {
       url: "/update",
       templateUrl: "app/update/update.html",
@@ -35,6 +43,11 @@ angular.module('nova', [
       controller: function($scope, Auth){
         Auth.signout();
       }
+    })
+    .state('location', {
+      url: "/location",
+      templateUrl: "app/location/location.html",
+      controller: "LocationController"
     })
     .state('notifications', {
       url: "/notifications",
@@ -59,7 +72,9 @@ angular.module('nova', [
   return attach;
 })
 
-.run(function($rootScope, $state, Auth) {
+.run(function($rootScope, $state, $window, Auth) {
+  $rootScope.loggedInUser =  $window.localStorage.getItem('loggedInUser');
+  console.log($rootScope);
   $rootScope.$on('$stateChangeStart', function(evt, toState, toParams, fromState, fromParams){
     if (toState.name === 'signin') {
       return;

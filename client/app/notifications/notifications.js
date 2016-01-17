@@ -3,7 +3,8 @@ angular.module('nova.notifications', [])
   .controller('NotificationCtrl', function($scope, Notify, Climbers) {
     $scope.notifications = [];
 
-    $scope.getAllNotifications = function() {
+
+    /*$scope.getAllNotifications = function() {
       Notify.fetchAllNotifications()
         .then(function(res) {
           $scope.notifications = res;
@@ -21,7 +22,7 @@ angular.module('nova.notifications', [])
         .catch(function(err) {
           console.error(err);
         });
-    }();
+    }();*/
 
     $scope.climbOn = function(climber) {
       Notify.replyToClimber(climber)
