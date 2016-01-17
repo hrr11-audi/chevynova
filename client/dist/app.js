@@ -165,7 +165,7 @@ angular.module('nova.main', [])
   //Testing, delete later
   $scope.contactMe = function(id) {
   var param = $rootScope.loggedInID + '-' + id;
-  var conversations = new Firebase('https://on-belay.firebaseio.com/' + param);
+  var conversations = new Firebase('https://on-belay-1.firebaseio.com/' + param);
 
   var cons = $firebaseObject(conversations);
 
@@ -414,7 +414,7 @@ angular.module('nova.main', [])
   //Testing, delete later
   $scope.contactMe = function(id) {
   var param = $rootScope.loggedInID + '-' + id;
-  var conversations = new Firebase('https://on-belay.firebaseio.com/' + param);
+  var conversations = new Firebase('https://on-belay-1.firebaseio.com/' + param);
 
   var cons = $firebaseObject(conversations);
 
@@ -663,7 +663,7 @@ angular.module('nova.main', [])
   //Testing, delete later
   $scope.contactMe = function(id) {
   var param = $rootScope.loggedInID + '-' + id;
-  var conversations = new Firebase('https://on-belay.firebaseio.com/' + param);
+  var conversations = new Firebase('https://on-belay-1.firebaseio.com/' + param);
 
   var cons = $firebaseObject(conversations);
 

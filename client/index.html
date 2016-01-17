@@ -25,7 +25,7 @@
     </div>
 <!-- ui-router nav -->
     <nav ng-controller="AuthController" ng-show="$root.hasAuth" role="navigation">
-      <a ui-sref="notifications" ui-sref-active="active-nav" class="notification-icon">{{ $root.unread }}</a>
+      <a ui-sref="notifications" ui-sref-active="active-nav" class="notification-icon">{{ unreadMessages }}</a>
       <a ui-sref="main" ui-sref-active="active-nav">Climb</a>
       <a ui-sref="profile({username: loggedInUser})" ui-sref-active="active-nav">Profile</a>
       <a data-toggle='offcanvas' data-target='#chatSideBar' data-canvas='body'>Chat</a>
